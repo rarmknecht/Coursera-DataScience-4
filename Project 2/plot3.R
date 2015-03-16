@@ -17,11 +17,6 @@ df.group <- group_by(df, year, type)
 df.q3 <- df.group %>% select(Pollutant, Emissions, year, fips, type) %>% filter(fips == "24510") %>% summarise(count=n(), pm = sum(Emissions, na.rm = TRUE))
 df.q3
 
-df.new$total[1] <- df %>% select(Pollutant, Emissions, year, fips) %>% filter(year == 1999, fips == "24510") %>% select(Emissions) %>% sum()
-df.new$total[2] <- df %>% select(Pollutant, Emissions, year, fips) %>% filter(year == 2002, fips == "24510") %>% select(Emissions) %>% sum()
-df.new$total[3] <- df %>% select(Pollutant, Emissions, year, fips) %>% filter(year == 2005, fips == "24510") %>% select(Emissions) %>% sum()
-df.new$total[4] <- df %>% select(Pollutant, Emissions, year, fips) %>% filter(year == 2008, fips == "24510") %>% select(Emissions) %>% sum()
-
 png(file = "plot3.png", width = 640, height = 480, units = "px", bg = "white")
 
 library(ggplot2)
